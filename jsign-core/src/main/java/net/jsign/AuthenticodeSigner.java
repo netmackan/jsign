@@ -428,6 +428,7 @@ public class AuthenticodeSigner {
             }
         });
         signerInfoGeneratorBuilder.setSignedAttributeGenerator(attributeTableGenerator);
+        signerInfoGeneratorBuilder.setContentDigest(new AlgorithmIdentifier(digestAlgorithm.oid, DERNull.INSTANCE));
         SignerInfoGenerator signerInfoGenerator = signerInfoGeneratorBuilder.build(shaSigner, certificate);
         
         AuthenticodeSignedDataGenerator generator = new AuthenticodeSignedDataGenerator();
